@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="myAngularApp" ng-controller="TaskIndex as vm">
+<head>
+    <title ng-bind="vm.message"></title>
+</head>
+<body>
+    <div>
+        <h2>CBC Test Assessment - Tasks Management</h2>
+        <hr />
+
+        <div ng-show="vm.canAdd">
+            <button ng-disabled="!vm.canAdd" ng-click="vm.Add()">Add Task</button>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <select name="prioritySelect" id="prioritySelect" ng-model="vm.selectedPriorityType" ng-change="vm.getTasks()"  class="form-control">
+                    <option value="">All Priority</option>
+                    <option ng-repeat="p in vm.priorityTypes" value="{{p.PriorityLookupId}}">{{p.Name}}</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <button ng-disabled="!vm.canGet" ng-click="vm.getTasks()">Get Tasks</button>
+            </div>
+        </div>
+
+        <div ng-show="vm.tasks.length > 0">
+            <hr />
+            <table border="1" class="panel panel-default table table-hover">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>Description</td>
+                        <td>Created By</td>
+                        <td>Created Date</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="t in vm.tasks" id="taskId_{{t.Id}}">
+                        <td><button ng-disabled="!vm.canEdit" ng-click="vm.edit(t.Id)">Edit</button></td>
+                        <td>{{t.Description}}</td>
+                        <td>{{t.CreatedBy}}</td>
+                        <td>{{ t.CreatedDate | jsDate | date:"yyyy-MM-dd hh:mm:ss a" }}</td>
+                        <td><button ng-disabled="!vm.canDelete" ng-click="vm.delete(t.Id)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @section Scripts{
+    }
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "CBCTestWebApp"
+  },
+  "hostingPlanName": {
+    "value": "TestAppServicePlan"
+  },
+  "siteLocation": {
+    "value": "Canada East"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "81edbde9-bc3c-459b-8e66-6013dfb62866"
+  },
+  "resourceGroup": {
+    "value": "TestResourceGroup"
+  }
+}
